@@ -58,3 +58,6 @@ async def update_task(task_id):
     async with async_session() as session:
         await session.execute(update(Task).where(Task.id == task_id).values(completed=True))
         await session.commit()
+
+if __name__ == "__main__":
+    uvicorn.run("main:app", host="0.0.0.0", port="8000")
