@@ -60,3 +60,7 @@ async def add_task(task: AddTask):
 async def complete_task(task: CompleteTask):
     await rq.update_task(task.id)
     return {'status': 'ok'}
+
+
+if __name__ == "__main__":
+    uvicorn.run("main:app", host="0.0.0.0", port="8000")
